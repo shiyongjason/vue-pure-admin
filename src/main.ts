@@ -9,6 +9,7 @@ import { createApp, type Directive } from "vue";
 import { useVxeTable } from "@/plugins/vxeTable";
 import { useElementPlus } from "@/plugins/elementPlus";
 import { injectResponsiveStorage } from "@/utils/responsive";
+import axios from "axios";
 
 import Table from "@pureadmin/table";
 import PureDescriptions from "@pureadmin/descriptions";
@@ -23,7 +24,9 @@ import "element-plus/dist/index.css";
 // 导入字体图标
 import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";
-
+// 导入avue
+import Avue from "@smallwei/avue";
+import "@smallwei/avue/lib/index.css";
 const app = createApp(App);
 
 // 自定义指令
@@ -66,6 +69,7 @@ getPlatformConfig(app).then(async config => {
     .use(Table)
     .use(useVxeTable)
     .use(PureDescriptions)
-    .use(useEcharts);
+    .use(useEcharts)
+    .use(Avue, { axios });
   app.mount("#app");
 });

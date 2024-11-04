@@ -255,3 +255,49 @@ div:focus {
     content: " ";
   }
 }
+
+// 弹窗
+.crud-dialog {
+  border-radius: 10px !important;
+  .el-dialog__header {
+    background: var(--el-color-primary);
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    // .avue-crud__dialog__header {
+    //   justify-content: center;
+    // }
+    .el-dialog__title {
+      color: #fff;
+    }
+    .el-dialog__headerbtn {
+      // top: 12px;
+      .el-dialog__close {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+    .avue-crud__dialog__menu {
+      // padding-right: 0;
+      color: #fff;
+      // position: absolute;
+      // top: 12px;
+      // right: 48px;
+      i {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+  .el-dialog__body,
+  .avue-dialog__footer {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+// .crud-dialog {
+//   ::v-deep(.el-form-item--label-left .el-form-item__label) {
+//     justify-content: flex-end;
+//   }
+// }

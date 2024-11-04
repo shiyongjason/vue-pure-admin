@@ -210,6 +210,7 @@ const transitionMain = defineComponent({
 }
 
 .main-content {
-  margin: 24px;
+  /* // 外层间距 */
+  margin: 10px;
 }
 </style>
