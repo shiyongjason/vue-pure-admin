@@ -121,45 +121,13 @@ watch(loginDay, value => {
     <img :src="bg" class="wave" />
     <div class="flex-c absolute right-5 top-3">
       <!-- 主题 -->
-      <el-switch
+      <!-- <el-switch
         v-model="dataTheme"
         inline-prompt
         :active-icon="dayIcon"
         :inactive-icon="darkIcon"
         @change="dataThemeChange"
-      />
-      <!-- 国际化 -->
-      <el-dropdown trigger="click">
-        <globalization
-          class="hover:text-primary hover:!bg-[transparent] w-[20px] h-[20px] ml-1.5 cursor-pointer outline-none duration-300"
-        />
-        <template #dropdown>
-          <el-dropdown-menu class="translation">
-            <el-dropdown-item
-              :style="getDropdownItemStyle(locale, 'zh')"
-              :class="['dark:!text-white', getDropdownItemClass(locale, 'zh')]"
-              @click="translationCh"
-            >
-              <IconifyIconOffline
-                v-show="locale === 'zh'"
-                class="check-zh"
-                :icon="Check"
-              />
-              简体中文
-            </el-dropdown-item>
-            <el-dropdown-item
-              :style="getDropdownItemStyle(locale, 'en')"
-              :class="['dark:!text-white', getDropdownItemClass(locale, 'en')]"
-              @click="translationEn"
-            >
-              <span v-show="locale === 'en'" class="check-en">
-                <IconifyIconOffline :icon="Check" />
-              </span>
-              English
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      /> -->
     </div>
     <div class="login-container">
       <div class="img">
@@ -167,7 +135,7 @@ watch(loginDay, value => {
       </div>
       <div class="login-box">
         <div class="login-form">
-          <avatar class="avatar" />
+          <!-- <avatar class="avatar" /> -->
           <Motion>
             <h2 class="outline-none">
               <TypeIt
@@ -188,7 +156,7 @@ watch(loginDay, value => {
                 :rules="[
                   {
                     required: true,
-                    message: transformI18n($t('login.pureUsernameReg')),
+                    message: '请输入账号',
                     trigger: 'blur'
                   }
                 ]"
@@ -215,7 +183,7 @@ watch(loginDay, value => {
               </el-form-item>
             </Motion>
 
-            <Motion :delay="200">
+            <!-- <Motion :delay="200">
               <el-form-item prop="verifyCode">
                 <el-input
                   v-model="ruleForm.verifyCode"
@@ -228,12 +196,12 @@ watch(loginDay, value => {
                   </template>
                 </el-input>
               </el-form-item>
-            </Motion>
+            </Motion> -->
 
             <Motion :delay="250">
               <el-form-item>
                 <div class="w-full h-[20px] flex justify-between items-center">
-                  <el-checkbox v-model="checked">
+                  <!-- <el-checkbox v-model="checked">
                     <span class="flex">
                       <select
                         v-model="loginDay"
@@ -258,7 +226,7 @@ watch(loginDay, value => {
                         class="ml-1"
                       />
                     </span>
-                  </el-checkbox>
+                  </el-checkbox> -->
                   <el-button
                     link
                     type="primary"
@@ -279,46 +247,8 @@ watch(loginDay, value => {
                 </el-button>
               </el-form-item>
             </Motion>
-
-            <Motion :delay="300">
-              <el-form-item>
-                <div class="w-full h-[20px] flex justify-between items-center">
-                  <el-button
-                    v-for="(item, index) in operates"
-                    :key="index"
-                    class="w-full mt-4"
-                    size="default"
-                    @click="useUserStoreHook().SET_CURRENTPAGE(index + 1)"
-                  >
-                    {{ t(item.title) }}
-                  </el-button>
-                </div>
-              </el-form-item>
-            </Motion>
           </el-form>
 
-          <Motion v-if="currentPage === 0" :delay="350">
-            <el-form-item>
-              <el-divider>
-                <p class="text-gray-500 text-xs">
-                  {{ t("login.pureThirdLogin") }}
-                </p>
-              </el-divider>
-              <div class="w-full flex justify-evenly">
-                <span
-                  v-for="(item, index) in thirdParty"
-                  :key="index"
-                  :title="t(item.title)"
-                >
-                  <IconifyIconOnline
-                    :icon="`ri:${item.icon}-fill`"
-                    width="20"
-                    class="cursor-pointer text-gray-500 hover:text-blue-400"
-                  />
-                </span>
-              </div>
-            </el-form-item>
-          </Motion>
           <!-- 手机号登录 -->
           <LoginPhone v-if="currentPage === 1" />
           <!-- 二维码登录 -->
@@ -350,6 +280,10 @@ watch(loginDay, value => {
 </style>
 
 <style lang="scss" scoped>
+.login-container {
+  // background: url("@/assets/login/background_jsqxj.png") center -120px no-repeat;
+  // background-size: cover;
+}
 :deep(.el-input-group__append, .el-input-group__prepend) {
   padding: 0;
 }

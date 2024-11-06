@@ -6,18 +6,6 @@ import type { multipleScopeVarsOptions } from "@pureadmin/theme";
 
 /** 预设主题色 */
 const themeColors = {
-  /* 亮白色 */
-  light: {
-    subMenuActiveText: "#000000d9",
-    menuBg: "#fff",
-    menuHover: "#f6f6f6",
-    subMenuBg: "#fff",
-    subMenuActiveBg: "#e0ebf6",
-    menuText: "rgb(0 0 0 / 60%)",
-    sidebarLogo: "#fff",
-    menuTitleHover: "#000",
-    menuActiveBefore: "#4091f7"
-  },
   /* 道奇蓝 */
   default: {
     subMenuActiveText: "#fff",
@@ -28,6 +16,18 @@ const themeColors = {
     menuText: "rgb(254 254 254 / 65%)",
     sidebarLogo: "#29457a",
     menuTitleHover: "#fff",
+    menuActiveBefore: "#4091f7"
+  },
+  /* 亮白色 */
+  light: {
+    subMenuActiveText: "#000000d9",
+    menuBg: "#fff",
+    menuHover: "#f6f6f6",
+    subMenuBg: "#fff",
+    subMenuActiveBg: "#e0ebf6",
+    menuText: "rgb(0 0 0 / 60%)",
+    sidebarLogo: "#fff",
+    menuTitleHover: "#000",
     menuActiveBefore: "#4091f7"
   },
   /* 深紫罗兰色 */

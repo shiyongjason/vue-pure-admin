@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { utils, writeFile } from "xlsx";
+// import { utils, writeFile } from "xlsx";
 import { tableDataDrag } from "../data";
 import { clone } from "@pureadmin/utils";
 import { message } from "@/utils/message";
@@ -35,10 +35,10 @@ export function useColumns() {
       titleList.push(column.label);
     });
     res.unshift(titleList);
-    const workSheet = utils.aoa_to_sheet(res);
-    const workBook = utils.book_new();
-    utils.book_append_sheet(workBook, workSheet, "数据报表");
-    writeFile(workBook, "pure-admin-table.xlsx");
+    // const workSheet = utils.aoa_to_sheet(res);
+    // const workBook = utils.book_new();
+    // utils.book_append_sheet(workBook, workSheet, "数据报表");
+    // writeFile(workBook, "pure-admin-table.xlsx");
     message("导出成功", {
       type: "success"
     });

@@ -19,7 +19,7 @@ const { title, getLogo } = useNav();
         class="sidebar-logo-link"
         :to="getTopMenu()?.path ?? '/'"
       >
-        <img :src="getLogo()" alt="logo" />
+        <!-- <img :src="getLogo()" alt="logo" /> -->
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
       <router-link
@@ -29,7 +29,7 @@ const { title, getLogo } = useNav();
         class="sidebar-logo-link"
         :to="getTopMenu()?.path ?? '/'"
       >
-        <img :src="getLogo()" alt="logo" />
+        <!-- <img :src="getLogo()" alt="logo" /> -->
         <span class="sidebar-title">{{ title }}</span>
       </router-link>
     </transition>
@@ -58,7 +58,7 @@ const { title, getLogo } = useNav();
     .sidebar-title {
       display: inline-block;
       height: 32px;
-      margin: 2px 0 0 12px;
+      margin: 2px 0 0 0px;
       overflow: hidden;
       font-size: 18px;
       font-weight: 600;
