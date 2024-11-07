@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="app-container custom-element">
     <RePage>
       <avue-crud
         ref="crud"
@@ -30,9 +30,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, computed, reactive } from "vue";
+import { ref, computed, reactive, defineAsyncComponent } from "vue";
 import { ElMessage } from "element-plus";
-import addDialog from "./components/add.vue";
+// import addDialog from "./components/add.vue";
+const addDialog = defineAsyncComponent(() => import("./components/add.vue"));
 import { RePage } from "@/components/RePage";
 import { form_option } from "./indexOption.js";
 const reload = ref(Math.random());

@@ -5,12 +5,13 @@ export function form_option() {
   return {
     ...commonFormOptions,
     labelWidth: 130,
-    labelPosition: "right",
+    labelPosition: "top",
     // addBtn: true,
     // size: "small",
     // dialogFullscreen: true,
     // detail: true,
     span: 12,
+    gutter: 24,
     column: [
       {
         label: "编报计划",

@@ -1,88 +1,89 @@
 <template>
-  <el-dialog
+  <ReFdialog
     v-model="isShow"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
     lock-scroll
     :title="'新增'"
     :append-to-body="true"
-    width="80%"
   >
-    <avue-form ref="formRef" v-model="form" :option="formOption"> </avue-form>
-    <div class="tabs-box">
-      <el-tabs type="card">
-        <el-tab-pane label="User">
-          <el-descriptions class="margin-top" :column="1" :border="true">
-            <!-- <template #extra>
+    <template #body>
+      <avue-form ref="formRef" v-model="form" :option="formOption"> </avue-form>
+      <div class="tabs-box">
+        <el-tabs type="card">
+          <el-tab-pane label="项目预算">
+            <el-descriptions class="margin-top" :column="1" :border="true">
+              <!-- <template #extra>
               <el-button type="primary">Operation</el-button>
             </template> -->
-            <el-descriptions-item
-              label-class-name="label-class"
-              label="预算总额（元）"
-              >kooriookami</el-descriptions-item
-            >
-            <el-descriptions-item label="预算年度"
-              >18100000000</el-descriptions-item
-            >
-            <el-descriptions-item label="各年预算金额（元）"
-              >Suzhou</el-descriptions-item
-            >
-          </el-descriptions>
-        </el-tab-pane>
-        <el-tab-pane label="Config">论证信息</el-tab-pane>
-        <el-tab-pane label="Role">项目附件</el-tab-pane>
-      </el-tabs>
-    </div>
-    <div class="tabs-origin">
-      <div class="title">
-        <!-- <el-icon><Histogram /></el-icon> -->
-        <IconifyIconOnline icon="ep:add-location" />经济科目
+              <el-descriptions-item
+                label-class-name="label-class"
+                label="预算总额（元）"
+                >kooriookami</el-descriptions-item
+              >
+              <el-descriptions-item label="预算年度"
+                >18100000000</el-descriptions-item
+              >
+              <el-descriptions-item label="各年预算金额（元）"
+                >Suzhou</el-descriptions-item
+              >
+            </el-descriptions>
+          </el-tab-pane>
+          <el-tab-pane label="论证信息">论证信息</el-tab-pane>
+          <el-tab-pane label="项目附件">项目附件</el-tab-pane>
+        </el-tabs>
       </div>
-      <div class="content">
-        <!-- <el-checkbox-group v-model="checkList" @change="changeCheck"> -->
-        <el-checkbox
-          v-for="(item, i) in checkArr"
-          :key="i"
-          :label="item.label"
-          :value="item.value"
-          @change="item => changeCheck(item)"
-        />
-        <!-- </el-checkbox-group> -->
+      <div class="tabs-origin">
+        <div class="title">
+          <!-- <el-icon><Histogram /></el-icon> -->
+          <IconifyIconOnline icon="ep:histogram" />经济科目
+        </div>
+        <div class="content">
+          <!-- <el-checkbox-group v-model="checkList" @change="changeCheck"> -->
+          <el-checkbox
+            v-for="(item, i) in checkArr"
+            :key="i"
+            :label="item.label"
+            :value="item.value"
+            @change="item => changeCheck(item)"
+          />
+          <!-- </el-checkbox-group> -->
+        </div>
       </div>
-    </div>
-    <div class="tabs-origin">
-      <div class="title">
-        <IconifyIconOnline icon="ep:add-location" />经济科目
-      </div>
-      <div class="content">
-        <el-button type="primary" @click="handleCkm">选择经济科目</el-button>
-        <pure-table
-          row-key="id"
-          align-whole="center"
-          :header-cell-style="{
-            background: 'var(--el-fill-color-light)',
-            color: 'var(--el-text-color-primary)'
-          }"
-          :data="dataList"
-          :columns="columns"
-        >
-          <!-- <template #empty>
+      <div class="tabs-origin">
+        <div class="title">
+          <IconifyIconOnline icon="ep:histogram" />经济科目
+        </div>
+        <div class="content">
+          <el-button style="margin: 10px 0" type="primary" @click="handleCkm"
+            >选择经济科目</el-button
+          >
+          <pure-table
+            row-key="id"
+            align-whole="center"
+            :header-cell-style="{
+              background: 'var(--el-fill-color-light)',
+              color: 'var(--el-text-color-primary)'
+            }"
+            :data="dataList"
+            :columns="columns"
+          >
+            <!-- <template #empty>
             <Empty fill="var(--el-svg-monochrome-grey)" class="m-auto" />
           </template> -->
-          <template #operation="{ row }">
-            <el-button type="primary" @click="onDel(row)">删除</el-button>
-          </template>
-        </pure-table>
-      </div>
-    </div>
-    <template #footer>
-      <div class="form-footer">
-        <el-button @click="handleClose">取消</el-button>
-        <el-button type="primary" @click="submit">确定</el-button>
+            <template #operation="{ index }">
+              <el-button type="primary" @click="onDel(index)">删除</el-button>
+            </template>
+          </pure-table>
+        </div>
       </div>
     </template>
-  </el-dialog>
-  <kmDialog ref="kmRef" />
+    <template #button>
+      <el-button @click="handleClose">取消</el-button>
+      <el-button type="primary" @click="submit">确定</el-button>
+    </template>
+  </ReFdialog>
+  <kmDialog ref="kmRef" @func="backFunc" />
 </template>
 
 <script setup>
@@ -91,6 +92,7 @@ import { ElMessage } from "element-plus";
 import { form_option } from "./formOption";
 import { useColumns } from "./columns";
 import kmDialog from "./kmDialog.vue";
+import ReFdialog from "@/components/ReFDialog/index";
 // import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 const isShow = ref(false);
 const kmRef = ref(null);
@@ -158,12 +160,21 @@ const handleCkm = () => {
   console.log("handleCkm");
   kmRef.value.open();
 };
+const backFunc = val => {
+  console.log("backFunc", val);
+  val.map(res => {
+    console.log(res);
+    dataList.value.push({ name: res.label });
+  });
+};
 const submit = () => {
   console.log("submit");
   ElMessage.success("提交成功");
   close();
 };
-const onDel = row => {
+const onDel = index => {
+  console.log("🤡 ~ index:", index);
+  dataList.value.splice(index, 1);
   ElMessage.success("删除成功");
 };
 //
@@ -174,13 +185,12 @@ defineExpose({
 
 <style lang="scss" scoped>
 .tabs-box {
-  padding: 0 20px;
 }
 .label-class {
   width: 130px;
 }
 .title {
-  margin: 10px 0 0 20px;
+  margin: 10px 0 0 0px;
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -188,7 +198,7 @@ defineExpose({
   padding: 5px;
 }
 .content {
-  padding: 0 20px;
+  padding: 0 0;
 }
 .form-footer {
   display: flex;

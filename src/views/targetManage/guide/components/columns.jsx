@@ -16,12 +16,12 @@ export function useColumns() {
   ];
   const columns = ref([
     {
-      label: "姓名",
+      label: "采购方式",
       prop: "name",
       cellRenderer: ({ row }) => <el-input v-model={row.name} />
     },
     {
-      label: "爱好",
+      label: "采购品目",
       prop: "hobby",
       cellRenderer: ({ row }) => (
         <el-select v-model={row.hobby} clearable placeholder="请选择爱好">
@@ -38,7 +38,7 @@ export function useColumns() {
       )
     },
     {
-      label: "日期",
+      label: "业务经办人",
       prop: "date",
       cellRenderer: ({ row }) => (
         <el-date-picker
@@ -52,6 +52,16 @@ export function useColumns() {
       minWidth: 110
     },
     {
+      label: "测算说明",
+      prop: "P8",
+      cellRenderer: ({ row }) => <el-input v-model={row.P8} />
+    },
+    {
+      label: "备注",
+      prop: "P7",
+      cellRenderer: ({ row }) => <el-input v-model={row.P7} />
+    },
+    {
       label: "操作",
       fixed: "right",
       width: 90,
@@ -60,7 +70,7 @@ export function useColumns() {
   ]);
 
   function onPush() {
-    columns.value.push({
+    columns.value.unshift({
       label: "姓名",
       prop: "name",
       cellRenderer: ({ row }) => <el-input v-model={row.name} />

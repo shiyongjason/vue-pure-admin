@@ -62,6 +62,20 @@
   .el-dialog__footer {
     padding-top: 0;
   }
+  .crud-footer{
+    padding-top:10px;
+  }
+}
+
+.fullscreen-dialog{
+  margin: 60px 1px 1px 210px !important;
+  width: auto !important;
+  height: calc(100vh - 60px) !important;
+}
+.fullscreen-dialog1{
+  margin: 60px 1px 1px 50px !important;
+  width: auto !important;
+  height: calc(100vh - 60px) !important;
 }
 
 /* 全局覆盖element-plus的el-tour、el-dialog、el-drawer、el-message-box、el-notification组件右上角关闭图标和el-upload上传文件列表右侧关闭图标的样式，表现更鲜明 */

@@ -28,6 +28,7 @@ export const commonTableOptions = {
   // searchMenuPosition: "right",
   searchBtnText: "查 询",
   labelPosition: "left",
+  align: "center",
   gutter: 24,
   searchGutter: 24,
   searchIndex: 3,
@@ -41,7 +42,7 @@ export const commonTableOptions = {
   searchEnter: true,
   // filterBtn: true, //表格自定义过滤按钮
   dialogDrag: true,
-  dialogCustomClass: "crud-dialog",
+  // dialogCustomClass: "crud-dialog",
   column: []
 };
 
