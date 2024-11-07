@@ -15,17 +15,29 @@
         @on-load="getList()"
         @search-change="searchChange"
         @refresh-change="getList()"
-      ></avue-crud>
+      >
+        <template #menu-left>
+          <el-button
+            type="primary"
+            icon="el-icon-plus"
+            @click="handleAddA('add')"
+            >添加执行项目库</el-button
+          >
+        </template>
+      </avue-crud>
     </RePage>
+    <addDialog ref="dialog" />
   </div>
 </template>
 <script setup lang="ts">
 import { ref, computed, reactive } from "vue";
 import { ElMessage } from "element-plus";
+import addDialog from "./components/add.vue";
 import { RePage } from "@/components/RePage";
 import { form_option } from "./indexOption.js";
 const reload = ref(Math.random());
 const loading = ref(false);
+const dialog = ref(null);
 const page = ref({
   total: 10, // 总页数
   currentPage: 1, // 当前页数
@@ -68,6 +80,12 @@ function searchChange() {
     ElMessage.success("初始化完成");
   }
 }
+
+// 新增
+const handleAddA = type => {
+  console.log(type);
+  dialog.value.open(type);
+};
 </script>
 <style scoped lang="scss">
 .app-container {

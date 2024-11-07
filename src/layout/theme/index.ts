@@ -7,7 +7,7 @@ import type { multipleScopeVarsOptions } from "@pureadmin/theme";
 /** 预设主题色 */
 const themeColors = {
   /* 道奇蓝 */
-  default: {
+  light: {
     subMenuActiveText: "#fff",
     menuBg: "#29457a",
     menuHover: "rgb(64 145 247 / 15%)",
@@ -19,7 +19,7 @@ const themeColors = {
     menuActiveBefore: "#4091f7"
   },
   /* 亮白色 */
-  light: {
+  default: {
     subMenuActiveText: "#000000d9",
     menuBg: "#fff",
     menuHover: "#f6f6f6",

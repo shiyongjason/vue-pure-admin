@@ -50,7 +50,7 @@ export function useDataThemeChange() {
 
   /** 设置导航主题色 */
   function setLayoutThemeColor(
-    theme = getConfig().Theme ?? "default",
+    theme = getConfig().Theme ?? "light",
     isClick = true
   ) {
     layoutTheme.value.theme = theme;

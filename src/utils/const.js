@@ -44,3 +44,8 @@ export const commonTableOptions = {
   dialogCustomClass: "crud-dialog",
   column: []
 };
+
+export const commonFormOptions = {
+  submitBtn: false,
+  emptyBtn: false
+};
