@@ -56,8 +56,8 @@ if (unref(layoutTheme)) {
   setLayoutModel(layout);
 }
 
-/** 默认灵动模式 */
-const markValue = ref($storage.configure?.showModel ?? "smart");
+/** 默认谷歌模式 */
+const markValue = ref($storage.configure?.showModel ?? "chrome");
 
 const logoVal = ref($storage.configure?.showLogo ?? true);
 

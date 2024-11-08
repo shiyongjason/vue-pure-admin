@@ -64,7 +64,7 @@ onMounted(() => {
       <img :src="getLogo()" alt="logo" />
       <span>{{ title }}</span>
     </div>
-    <el-menu
+    <!-- <el-menu
       ref="menuRef"
       mode="horizontal"
       popper-class="pure-scrollbar"
@@ -77,7 +77,7 @@ onMounted(() => {
         :item="route"
         :base-path="route.path"
       />
-    </el-menu>
+    </el-menu> -->
     <div class="horizontal-header-right">
       <!-- 菜单搜索 -->
       <LaySearch id="header-search" />

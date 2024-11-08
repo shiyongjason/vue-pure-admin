@@ -36,7 +36,9 @@ import { ElMessage } from "element-plus";
 const addDialog = defineAsyncComponent(() => import("./components/add.vue"));
 import { RePage } from "@/components/RePage";
 import { form_option } from "./indexOption.js";
+import { getListData } from "@/api/project";
 const reload = ref(Math.random());
+const crud = ref(null);
 const loading = ref(false);
 const dialog = ref(null);
 const page = ref({
@@ -61,7 +63,6 @@ const tableOption = computed(() => {
   return form_option.call(this);
 });
 
-const crud = ref(null);
 
 // 业务操作
 const handelDel = (row, index) => {
@@ -73,7 +74,16 @@ function handleReload() {
   ElMessage.success("初始化完成");
 }
 
-const getList = () => {};
+
+// 查询
+
+const getList = () => {
+  getListData().then(res => {
+    console.log(res);
+    list.value = res.data.list;
+    page.value.total = res.data.total;
+  });
+};
 
 function searchChange() {
   if (crud.value) {

@@ -44,7 +44,7 @@
     "src/**/*.vue",
     "types/*.d.ts",
     "vite.config.ts"
-, "src/views/targetManage/guide/components/columns.jsx"  ],
+, "src/views/targetManage/guide/components/columns.jsx", "src/api/project.js"  ],
   "exclude": [
     "dist",
     "**/*.js",

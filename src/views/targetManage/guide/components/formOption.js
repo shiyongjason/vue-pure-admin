@@ -4,13 +4,13 @@ export function form_option() {
   // const self = this;
   return {
     ...commonFormOptions,
-    labelWidth: 130,
+    // labelWidth: 130,
     labelPosition: "top",
     // addBtn: true,
     // size: "small",
     // dialogFullscreen: true,
     // detail: true,
-    span: 12,
+    span: 8,
     gutter: 24,
     column: [
       {

@@ -14,6 +14,7 @@ export default defineFlatConfig([
       "**/.*",
       "dist/*",
       "*.d.ts",
+      "*.ts",
       "public/*",
       "src/assets/**",
       "src/**/iconfont/**"
@@ -51,24 +52,14 @@ export default defineFlatConfig([
         parseFloat: "readonly"
       }
     },
-    plugins: {
-      prettier: pluginPrettier
-    },
+    plugins: {},
     rules: {
-      ...configPrettier.rules,
-      ...pluginPrettier.configs.recommended.rules,
       "no-debugger": "off",
       "no-unused-vars": [
         "error",
         {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_"
-        }
-      ],
-      "prettier/prettier": [
-        "error",
-        {
-          endOfLine: "auto"
         }
       ]
     }

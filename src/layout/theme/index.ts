@@ -8,18 +8,6 @@ import type { multipleScopeVarsOptions } from "@pureadmin/theme";
 const themeColors = {
   /* 道奇蓝 */
   light: {
-    subMenuActiveText: "#fff",
-    menuBg: "#29457a",
-    menuHover: "rgb(64 145 247 / 15%)",
-    subMenuBg: "#29457a",
-    subMenuActiveBg: "#4091f7",
-    menuText: "rgb(254 254 254 / 65%)",
-    sidebarLogo: "#29457a",
-    menuTitleHover: "#fff",
-    menuActiveBefore: "#4091f7"
-  },
-  /* 亮白色 */
-  default: {
     subMenuActiveText: "#000000d9",
     menuBg: "#fff",
     menuHover: "#f6f6f6",
@@ -29,6 +17,18 @@ const themeColors = {
     sidebarLogo: "#fff",
     menuTitleHover: "#000",
     menuActiveBefore: "#4091f7"
+  },
+  /* 亮白色 */
+  default: {
+    subMenuActiveText: "#fff",
+    menuBg: "#387BFB",
+    menuHover: "rgb(64 145 247 / 15%)",
+    subMenuBg: "#387BFB",
+    subMenuActiveBg: "#0D50D7",
+    menuText: "rgb(254 254 254 / 65%)",
+    sidebarLogo: "#387BFB",
+    menuTitleHover: "#fff",
+    menuActiveBefore: "#387BFB"
   },
   /* 深紫罗兰色 */
   saucePurple: {

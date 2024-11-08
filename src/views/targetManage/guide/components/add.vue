@@ -45,7 +45,7 @@
             :key="i"
             :label="item.label"
             :value="item.value"
-            @change="item => changeCheck(item)"
+            @change="e => changeCheck(e, item, i)"
           />
           <!-- </el-checkbox-group> -->
         </div>
@@ -150,9 +150,9 @@ const handleClose = () => {
 };
 
 // 多选项
-const changeCheck = val => {
-  console.log(val);
-  onPush(val);
+const changeCheck = (e, val, index) => {
+  console.log(e, val);
+  onPush(e, val, index);
 };
 
 // 选择经济科目
@@ -168,7 +168,7 @@ const backFunc = val => {
   });
 };
 const submit = () => {
-  console.log("submit");
+  console.log("submit", dataList.value);
   ElMessage.success("提交成功");
   close();
 };
@@ -190,11 +190,11 @@ defineExpose({
   width: 130px;
 }
 .title {
-  margin: 10px 0 0 0px;
+  margin: 15px 0 15px 0px;
   display: flex;
   align-items: center;
   font-size: 16px;
-  background: rgb(235, 235, 235);
+  background: #e7f3fd;
   padding: 5px;
 }
 .content {

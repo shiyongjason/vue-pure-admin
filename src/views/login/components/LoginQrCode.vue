@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import Motion from "../utils/motion";
-import ReQrcode from "@/components/ReQrcode";
+// import ReQrcode from "@/components/ReQrcode";
 import { useUserStoreHook } from "@/store/modules/user";
 
 const { t } = useI18n();
@@ -9,7 +9,7 @@ const { t } = useI18n();
 
 <template>
   <Motion class="-mt-2 -mb-2">
-    <ReQrcode :text="t('login.pureTest')" />
+    <!-- <ReQrcode :text="t('login.pureTest')" /> -->
   </Motion>
   <Motion :delay="100">
     <el-divider>

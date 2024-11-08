@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, defineProps, computed } from "vue";
+import { computed } from "vue";
 import { useGlobal } from "@pureadmin/utils";
 const { $storage } = useGlobal();
 defineOptions({

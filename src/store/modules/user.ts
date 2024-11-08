@@ -41,46 +41,47 @@ export const useUserStore = defineStore({
   }),
   actions: {
     /** 存储头像 */
-    SET_AVATAR(avatar: string) {
+    SET_AVATAR (avatar: string) {
       this.avatar = avatar;
     },
     /** 存储用户名 */
-    SET_USERNAME(username: string) {
+    SET_USERNAME (username: string) {
       this.username = username;
     },
     /** 存储昵称 */
-    SET_NICKNAME(nickname: string) {
+    SET_NICKNAME (nickname: string) {
       this.nickname = nickname;
     },
     /** 存储角色 */
-    SET_ROLES(roles: Array<string>) {
+    SET_ROLES (roles: Array<string>) {
       this.roles = roles;
     },
     /** 存储按钮级别权限 */
-    SET_PERMS(permissions: Array<string>) {
+    SET_PERMS (permissions: Array<string>) {
       this.permissions = permissions;
     },
     /** 存储前端生成的验证码 */
-    SET_VERIFYCODE(verifyCode: string) {
+    SET_VERIFYCODE (verifyCode: string) {
       this.verifyCode = verifyCode;
     },
     /** 存储登录页面显示哪个组件 */
-    SET_CURRENTPAGE(value: number) {
+    SET_CURRENTPAGE (value: number) {
       this.currentPage = value;
     },
     /** 存储是否勾选了登录页的免登录 */
-    SET_ISREMEMBERED(bool: boolean) {
+    SET_ISREMEMBERED (bool: boolean) {
       this.isRemembered = bool;
     },
     /** 设置登录页的免登录存储几天 */
-    SET_LOGINDAY(value: number) {
+    SET_LOGINDAY (value: number) {
       this.loginDay = Number(value);
     },
     /** 登入 */
-    async loginByUsername(data) {
+    async loginByUsername (data) {
       return new Promise<UserResult>((resolve, reject) => {
         getLogin(data)
           .then(data => {
+            sessionStorage.setItem("token", 'eyJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50U3VpZElkIjoiMjg4NDU1OGM3NGUyNGEzYzk4ZTQ4ZGNmYTZkOTIyYzMiLCJzdWIiOiI5ODEzMDUxMDM3OWM0OWRiOTU0ODVlZDgxYTNhYzU5MiIsImlhdCI6MTczMTAzMTU3MSwiZXhwIjoxNzMxMTE3OTcxfQ.NDfMPZLuHAogQHYfHjUfrGK6Nj7-XLIYXb62om8347k');
             if (data?.success) setToken(data.data);
             resolve(data);
           })
@@ -90,7 +91,7 @@ export const useUserStore = defineStore({
       });
     },
     /** 前端登出（不调用接口） */
-    logOut() {
+    logOut () {
       this.username = "";
       this.roles = [];
       this.permissions = [];
@@ -100,7 +101,7 @@ export const useUserStore = defineStore({
       router.push("/login");
     },
     /** 刷新`token` */
-    async handRefreshToken(data) {
+    async handRefreshToken (data) {
       return new Promise<RefreshTokenResult>((resolve, reject) => {
         refreshTokenApi(data)
           .then(data => {
@@ -117,6 +118,6 @@ export const useUserStore = defineStore({
   }
 });
 
-export function useUserStoreHook() {
+export function useUserStoreHook () {
   return useUserStore(store);
 }

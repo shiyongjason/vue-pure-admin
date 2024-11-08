@@ -24,7 +24,7 @@ export function form_option() {
     column: [
       {
         label: "预算年度",
-        prop: "payer",
+        prop: "year",
         type: "date",
         span: 12,
         search: true,
@@ -34,7 +34,7 @@ export function form_option() {
       },
       {
         label: "编报部门",
-        prop: "settlementAmount",
+        prop: "accountSuitName",
         type: "input",
         search: true,
         span: 12,
@@ -44,7 +44,7 @@ export function form_option() {
       },
       {
         label: "项目名称",
-        prop: "billNo",
+        prop: "name",
         type: "input",
         span: 12,
         width: 100,
@@ -54,7 +54,7 @@ export function form_option() {
       },
       {
         label: "项目编号",
-        prop: "projectName",
+        prop: "code",
         // type: "input",
         span: 12,
         search: true,
@@ -83,7 +83,7 @@ export function form_option() {
       },
       {
         label: "本年度预算(元）",
-        prop: "serviceAmount",
+        prop: "thisYearAmount",
         span: 12,
         search: false,
         width: 100,
@@ -92,7 +92,7 @@ export function form_option() {
       },
       {
         label: "已执行预算(元）",
-        prop: "serviceAmount",
+        prop: "totalUsed",
         span: 12,
         search: false,
         width: 100,
@@ -101,7 +101,7 @@ export function form_option() {
       },
       {
         label: "剩余预算(元）",
-        prop: "serviceAmount",
+        prop: "residueAmount",
         span: 12,
         search: false,
         width: 100,
@@ -110,7 +110,7 @@ export function form_option() {
       },
       {
         label: "项目负责人",
-        prop: "serviceAmount",
+        prop: "dutyUser.name",
         span: 12,
         search: true,
         width: 100,
@@ -119,7 +119,7 @@ export function form_option() {
       },
       {
         label: "项目属性",
-        prop: "crewTaxAmount",
+        prop: "ensureLabel",
         search: true,
         width: 100,
         overHidden: true,
@@ -145,7 +145,7 @@ export function form_option() {
       },
       {
         label: "支出功能科目",
-        prop: "billSalaryList",
+        prop: "expenseNatureLabel",
         disabled: false,
         search: true,
         width: 100,
@@ -154,7 +154,7 @@ export function form_option() {
       },
       {
         label: "资金保障类型",
-        prop: "billSalaryList",
+        prop: "ensureLabel",
         disabled: false,
         search: true,
         width: 100,

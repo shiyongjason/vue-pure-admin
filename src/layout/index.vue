@@ -145,7 +145,7 @@ const LayHeader = defineComponent({
         default: () => [
           !pureSetting.hiddenSideBar &&
           (layout.value.includes("vertical") || layout.value.includes("mix"))
-            ? h(LayNavbar)
+            ? null
             : null,
           !pureSetting.hiddenSideBar && layout.value.includes("horizontal")
             ? h(NavHorizontal)
@@ -169,6 +169,7 @@ const LayHeader = defineComponent({
       class="app-mask"
       @click="useAppStoreHook().toggleSideBar()"
     />
+    <NavHorizontal/>
     <NavVertical
       v-show="
         !pureSetting.hiddenSideBar &&

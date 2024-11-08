@@ -15,7 +15,7 @@ import { useLayout } from "@/layout/hooks/useLayout";
 import LoginPhone from "./components/LoginPhone.vue";
 import LoginRegist from "./components/LoginRegist.vue";
 import LoginUpdate from "./components/LoginUpdate.vue";
-import LoginQrCode from "./components/LoginQrCode.vue";
+// import LoginQrCode from "./components/LoginQrCode.vue";
 import { useUserStoreHook } from "@/store/modules/user";
 import { initRouter, getTopMenu } from "@/router/utils";
 import { bg, avatar, illustration } from "./utils/static";
@@ -55,10 +55,10 @@ const { dataTheme, overallStyle, dataThemeChange } = useDataThemeChange();
 dataThemeChange(overallStyle.value);
 const { title, getDropdownItemStyle, getDropdownItemClass } = useNav();
 const { locale, translationCh, translationEn } = useTranslationLang();
-
+import { setToken, removeToken, userKey } from "@/utils/auth";
 const ruleForm = reactive({
-  username: "admin",
-  password: "admin123",
+  username: "sa",
+  password: "njyh712",
   verifyCode: ""
 });
 
@@ -67,25 +67,40 @@ const onLogin = async (formEl: FormInstance | undefined) => {
   await formEl.validate(valid => {
     if (valid) {
       loading.value = true;
-      useUserStoreHook()
-        .loginByUsername({ username: ruleForm.username, password: "admin123" })
-        .then(res => {
-          if (res.success) {
-            // 获取后端路由
-            return initRouter().then(() => {
-              disabled.value = true;
-              router
-                .push(getTopMenu(true).path)
-                .then(() => {
-                  message(t("login.pureLoginSuccess"), { type: "success" });
-                })
-                .finally(() => (disabled.value = false));
-            });
-          } else {
-            message(t("login.pureLoginFail"), { type: "error" });
-          }
-        })
-        .finally(() => (loading.value = false));
+      setToken({ accessToken: "123" });
+      // 获取后端路由
+      return initRouter().then(() => {
+        disabled.value = true;
+        router
+          .push(getTopMenu(true).path)
+          .then(() => {
+            message(t("login.pureLoginSuccess"), { type: "success" });
+          })
+          .finally(() => (disabled.value = false));
+      });
+      // useUserStoreHook()
+      //   .loginByUsername({
+      //     username: ruleForm.username,
+      //     password: ruleForm.password,
+      //     accountSuitId: "2884558c74e24a3c98e48dcfa6d922c3",
+      //     loginType: 1
+      //   })
+      //   .then(res => {
+      //     if (res.data) {
+      //  return initRouter().then(() => {
+      //         disabled.value = true;
+      //         router
+      //           .push(getTopMenu(true).path)
+      //           .then(() => {
+      //             message(t("login.pureLoginSuccess"), { type: "success" });
+      //           })
+      //           .finally(() => (disabled.value = false));
+      //       });
+      //     } else {
+      //       message(t("login.pureLoginFail"), { type: "error" });
+      //     }
+      //   })
+      //   .finally(() => (loading.value = false));
     }
   });
 };
@@ -252,7 +267,7 @@ watch(loginDay, value => {
           <!-- 手机号登录 -->
           <LoginPhone v-if="currentPage === 1" />
           <!-- 二维码登录 -->
-          <LoginQrCode v-if="currentPage === 2" />
+          <!-- <LoginQrCode v-if="currentPage === 2" /> -->
           <!-- 注册 -->
           <LoginRegist v-if="currentPage === 3" />
           <!-- 忘记密码 -->

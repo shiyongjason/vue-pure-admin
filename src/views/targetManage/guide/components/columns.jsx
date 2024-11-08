@@ -41,15 +41,19 @@ export function useColumns() {
       label: "业务经办人",
       prop: "date",
       cellRenderer: ({ row }) => (
-        <el-date-picker
-          v-model={row.date}
-          type="date"
-          format="YYYY/MM/DD"
-          value-format="YYYY-MM-DD"
-          placeholder="请选择日期"
-        />
+        <el-select v-model={row.date} clearable placeholder="请选择爱好">
+          {options.map(item => {
+            return (
+              <el-option
+                key={item.value}
+                label={item.label}
+                value={item.value}
+              />
+            );
+          })}
+        </el-select>
       ),
-      minWidth: 110
+      width: 110
     },
     {
       label: "测算说明",
@@ -69,12 +73,16 @@ export function useColumns() {
     }
   ]);
 
-  function onPush() {
-    columns.value.unshift({
-      label: "姓名",
-      prop: "name",
-      cellRenderer: ({ row }) => <el-input v-model={row.name} />
-    });
+  function onPush(flag, val, index) {
+    if (flag) {
+      columns.value.unshift({
+        label: val.label,
+        prop: val.prop,
+        cellRenderer: ({ row }) => <el-input v-model={row[val.prop]} />
+      });
+    } else {
+      columns.value.splice(index, 1);
+    }
   }
 
   return {
